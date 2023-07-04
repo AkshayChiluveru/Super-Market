@@ -20,6 +20,12 @@ cool Drinks Rs 10/liter
 
 price = 0 
 price_list = []
+total_price = 0
+final_price = 0
+item_list = []
+quantity_list = []
+price_list = []
+ 
 
 # rates for each items: 
 items = {
@@ -34,3 +40,29 @@ items = {
     "Chips"        :10,
     "cool Drinks"  :20
 }
+
+option = int(input("Press 1 for list of items: "))
+if option == 1:
+    print(lists)
+for i in range(len(items)):
+    input1 = int(input("if you want to buy press 1 or press 2 for exit: "))
+    if input1 == 2:
+        break
+    if input1 == 1:
+        item = input("Enter your items: ")
+        quantity = int(input("Enter quantity: "))
+        if item in items.keys():
+            price = quantity*(items[item])
+            price_list.append((item,quantity,items,price))
+            total_price += price
+            item_list.append(item)
+            quantity_list.append(quantity)
+            price_list.append(price)
+            gst = (total_price*5) / 100
+            final_amount = gst + total_price
+        else:
+            print("Sorry you entered item is not available")
+    else:
+        print("You entered wrong number")
+    
+    
