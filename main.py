@@ -14,12 +14,12 @@ paneer      Rs 10/kg
 maggi       Rs 10/kg
 Complan     Rs 10/kg
 Chips       Rs 10/each
-cool Drinks Rs 10/liter
+Cool Drinks Rs 10/liter
 '''
 
 
 price = 0 
-price_list = []
+pricelist = []
 total_price = 0
 final_price = 0
 item_list = []
@@ -38,22 +38,22 @@ items = {
     "maggi"        :20,
     "Complan"      :100,
     "Chips"        :10,
-    "cool Drinks"  :20
+    "Cool Drinks"  :20
 }
 
 option = int(input("Press 1 for list of items: "))
 if option == 1:
     print(lists)
 for i in range(len(items)):
-    input1 = int(input("if you want to buy press 1 or press 2 for exit: "))
-    if input1 == 2:
+    inp1 = int(input("if you want to buy press 1 or press 2 for exit: "))
+    if inp1 == 2:
         break
-    if input1 == 1:
+    if inp1 == 1:
         item = input("Enter your items: ")
         quantity = int(input("Enter quantity: "))
         if item in items.keys():
             price = quantity*(items[item])
-            price_list.append((item,quantity,items,price))
+            pricelist.append((item,quantity,items,price))
             total_price += price
             item_list.append(item)
             quantity_list.append(quantity)
@@ -65,4 +65,10 @@ for i in range(len(items)):
     else:
         print("You entered wrong number")
     
-    
+
+    inp = input("click yes to bill the items else no: ")
+    if inp == 'yes':
+        pass
+    if final_amount != 0:
+        for i in range(len(pricelist)):
+            print(i,item_list[i],quantity_list[i],price_list[i])
